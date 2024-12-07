@@ -183,4 +183,13 @@ public class AppProgramacaoEstruturada {
     public static void main(String[] args) {
         new AppProgramacaoEstruturada();
     }
+    //lambda e stream
+    private void imprimeEstudantesPorSexo() {
+    Map<Character, List<Estudante>> estudantesPorSexo = estudantes.stream()
+            .collect(Collectors.groupingBy(Estudante::getSexo));
+
+    System.out.println("\nEstudantes por sexo");
+    estudantesPorSexo.forEach((gender, students) ->
+            System.out.printf("\tSexo: %c | Estudantes: %s\n", gender, students));
+}
 }
